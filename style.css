@@ -1,0 +1,160 @@
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    #845ec2,
+    #d65db1,
+    #ff6f91,
+    #ff9671,
+    #ffc75f,
+    #f9f871
+  );
+}
+
+body {
+  margin: 0;
+  font-family: "Major Mono Display", monospace;
+  background: #ddd;
+  background: var(--gradient);
+  background-size: 400%;
+  animation: bg-animation 5s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 55px 250px auto auto;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid lightcyan;
+}
+
+.header p {
+  font-size: 0.7rem;
+  color: #333;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: scroll;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+
+.cards div {
+  position: relative;
+  margin: 0 20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50px;
+  box-shadow: 20px 15px 40px #000, -20px -15px 40px #fff;
+  border: solid 3px aliceblue;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.cards div:nth-child(1) {
+  background-image: url("https://images.unsplash.com/photo-1571575522341-be760794a35b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJvY2slMjBjb25jZXJ0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+}
+
+.cards div:nth-child(2) {
+  scroll-snap-align: center;
+  background-image: url("https://images.unsplash.com/photo-1583795311768-2ef98ac78740?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cm9jayUyMGNvbmNlcnR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+}
+
+.cards div:nth-child(3) {
+  background-image: url("https://images.unsplash.com/photo-1526749464606-83091e34a261?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHJvY2slMjBjb25jZXJ0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-top: 1px solid lightcyan;
+}
+
+.progress-bar h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.progress-bar p {
+  margin: 5px 0;
+  font-size: 0.7rem;
+}
+
+.progress-bar b {
+  width: 70%;
+  height: 5px;
+  border-bottom: 2px solid darkcyan;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.controls div {
+  width: 20px;
+  border-radius: 50%;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 20px 20px 40px #777, -20px -20px 40px #fff;
+  border: solid 1px lightcyan;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.controls div img {
+  width: 80%;
+}
+
+.controls div:nth-child(2),
+.controls div:nth-child(4) {
+  width: 30px;
+}
+
+.controls div:nth-child(3) {
+  width: 50px;
+  padding: 12px 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    grid-template-rows: 50px 420px auto auto;
+  }
+
+  .cards div {
+    margin: 0 60px;
+    width: 350px;
+    height: 350px;
+  }
+
+  .progress-bar,
+  .controls {
+    padding-top: 15px;
+  }
+
+  .controls {
+    padding-bottom: 5px;
+  }
+}
